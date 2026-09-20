@@ -34,15 +34,23 @@ Rolling out ads to all users would generate:
 
 ✅ Chi-squared test (appropriate for binary outcomes)
 ✅ Confidence intervals don't overlap (high power)
-✅ Simpson's Paradox check passed (no subgroup reversals)
+✅ Simpson's Paradox check passed (no subgroup reversals) — lift stayed positive across every day-of-week and time-of-day subgroup checked, so the aggregate 43.1% lift is not an artifact of pooling across a confound
 ✅ Chi-squared assumptions met (all expected frequencies > 5)
 ✅ Sample sizes large (high statistical power)
+
+## Known limitations
+
+- **Sample Ratio Mismatch (SRM) check tests against the wrong null.** The dataset has a 96:4 ad/PSA split, and the notebook's SRM check compares this against an expected 50:50 ratio, which is almost certain to "fail" regardless of whether assignment was actually random, since 50:50 was never the intended design. A meaningful SRM check would need to know the platform's actual intended allocation ratio and test against that instead — this hasn't been done, so assignment integrity for the 96:4 split itself remains unverified, only assumed reasonable.
+- **The time-of-day breakdown silently drops ~0.94% of users.** The `most ads hour == 0` transactions (5,536 users) fall outside all three bins used for the Morning/Afternoon/Evening breakdown, due to how the bin edges are defined, and are excluded from that specific subgroup analysis without being called out. Doesn't affect the headline 43.1% lift (computed on the full dataset), only the by-time-of-day figures above.
+- **The "Tuesday morning could deliver 150%+ lift" idea (in the full report, not reflected above) is untested.** It's the Tuesday day-lift and Morning time-lift added together, not a measured result from an actual Tuesday-morning subgroup, since the day×time interaction itself was never directly tested.
 
 ## Files
 
 - `ab_testing_analysis.ipynb` - Complete analysis (Days 8-13)
+- `requirements.txt` - Dependencies (`pip install -r requirements.txt`)
 - `day12_ab_testing_visualizations.png` - Publication-quality charts
 - `DAY13_AB_TESTING_FINAL_REPORT.txt` - Executive report
+- `marketing_AB.csv` - Kaggle Marketing A/B Testing dataset, committed directly (21MB, under GitHub's size limits)
 
 ## Methodology
 
