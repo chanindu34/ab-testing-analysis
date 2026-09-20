@@ -46,21 +46,21 @@ Rolling out ads to all users would generate:
 
 ## Files
 
-- `ab_testing_analysis.ipynb` - Complete analysis (Days 8-13)
+- `ab_testing_analysis.ipynb` - Complete analysis, exploratory data analysis through final report
 - `requirements.txt` - Dependencies (`pip install -r requirements.txt`)
-- `day12_ab_testing_visualizations.png` - Publication-quality charts
-- `DAY13_AB_TESTING_FINAL_REPORT.txt` - Executive report
+- `ab_testing_dashboard.png` - Publication-quality charts
+- `conversion_rate_comparison.png` - Ad vs. PSA conversion rate comparison chart
+- `AB_TESTING_FINAL_REPORT.txt` - Executive report
 - `marketing_AB.csv` - Kaggle Marketing A/B Testing dataset, committed directly (21MB, under GitHub's size limits)
 
 ## Methodology
 
-**Days 8-13 Analysis:**
-- Day 8: Exploratory data analysis (588K users, 2 groups, conversion metric)
-- Day 9: Hypothesis testing (chi-squared test, p<0.0001)
-- Day 10: Pitfall detection (SRM, Simpson's Paradox, assumptions)
-- Day 11: Business impact (confidence intervals, scenario planning)
-- Day 12: Visualizations (conversion rates, lifts by subgroup)
-- Day 13: Final report (recommendations, decision)
+- Exploratory data analysis (588K users, 2 groups, conversion metric)
+- Hypothesis testing (chi-squared test, p<0.0001)
+- Pitfall detection (SRM, Simpson's Paradox, assumptions)
+- Business impact (confidence intervals, scenario planning)
+- Visualizations (conversion rates, lifts by subgroup)
+- Final report (recommendations, decision)
 
 ## Recommendation
 
