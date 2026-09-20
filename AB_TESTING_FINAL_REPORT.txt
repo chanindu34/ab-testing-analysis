@@ -1,146 +1,80 @@
 
+A/B TESTING FINAL REPORT
+Marketing Ad Campaign vs PSA (Public Service Announcement)
+==========================================================================================
 
 EXECUTIVE SUMMARY
-==========================================================================================
+------------------------------------------------------------------------------------------
+CONTROL GROUP (PSA): 23,524 users shown public service announcements
+TREATMENT GROUP (Ad): 564,577 users shown advertisements
 
-This A/B test compared two marketing approaches:
-  • CONTROL GROUP (PSA): 23,524 users shown public service announcements
-  • TREATMENT GROUP (Ad): 564,577 users shown advertisements
-
-KEY FINDING: Advertisements significantly outperform PSAs
-
-                          Conversion Rate          95% CI              Users
-  PSA (Control):           1.79%          1.62% - 1.96%            23,524
-  Ad (Treatment):          2.55%          2.51% - 2.60%          564,577
-  ──────────────────────────────────────────────────────────────────────────────────────
-  ABSOLUTE LIFT:           0.77 percentage points
-  RELATIVE LIFT:          43.09% improvement ✅
-
+                          Conversion Rate     95% CI                  Users
+  PSA (Control):           1.79%          1.62% - 1.96%              23,524
+  Ad (Treatment):          2.55%          2.51% - 2.60%            564,577
+  --------------------------------------------------------------------------------------
+  Absolute lift:           0.77 percentage points
+  Relative lift:          43.09%
 
 STATISTICAL ANALYSIS
-==========================================================================================
+------------------------------------------------------------------------------------------
+Test: chi-squared test of independence (appropriate for a binary outcome)
+  chi-squared statistic: 54.0058
+  p-value: 2.00e-13
 
-Test Used: Chi-Squared Test (appropriate for binary outcomes)
-  Chi-squared statistic: 54.0058
-  P-value: < 0.0001 (essentially zero)
+If there were no real difference between ads and PSAs, a difference this large would
+occur by chance with probability 2.00e-13 -- the difference is statistically
+significant at the 0.05 level.
 
-Interpretation:
-  If there was NO real difference between ads and PSAs, the probability of seeing
-  this large of a difference by pure chance is less than 0.01%.
-
-Conclusion: The difference is HIGHLY statistically significant ✅
-
-
-VALIDITY CHECKS (All Passed ✅)
-==========================================================================================
-
-1. Chi-Squared Assumptions:
-   ✅ All expected frequencies > 5 (assumption met)
-   ✅ Test is valid and reliable
-
-2. Simpson's Paradox Check:
-   ✅ Lift is POSITIVE across all days of week (no reversal)
-   ✅ Lift is POSITIVE across all times of day (no reversal)
-   ✅ Effect is robust and consistent
-
-3. Sample Ratio Mismatch Check:
-   ✅ 96:4 split appears intentional (not a sign of bias)
-   ✅ Both sample sizes are large (high power)
-
+VALIDITY CHECKS
+------------------------------------------------------------------------------------------
+1. Chi-squared assumptions: all expected frequencies >= 5 -- True
+2. Simpson's paradox: lift stayed positive across every day-of-week and time-of-day
+   subgroup checked (True), so the aggregate lift is not an artifact of pooling
+   across a confound. This does not rule out an untested interaction (e.g. day x hour
+   jointly).
+3. Sample ratio mismatch: the observed 96:4 split is plausible as an intentional design
+   choice, but the true intended allocation ratio isn't known, so this check is
+   informative rather than conclusive.
 
 SUBGROUP ANALYSIS: WHEN DO ADS WORK BEST?
-==========================================================================================
+------------------------------------------------------------------------------------------
+By day of week:
+  Tuesday      +110.7% lift
+  Wednesday     +60.9% lift
+  Saturday      +52.2% lift
+  Monday        +47.4% lift
+  Friday        +37.8% lift
+  Sunday        +19.5% lift
+  Thursday       +7.0% lift
 
-By Day of Week:
-  Tuesday........: 110.7% lift 🔥🔥🔥 (BEST DAY)
-  Wednesday......:  60.9% lift 🔥
-  Saturday........:  52.2% lift
-  Monday.........:  47.4% lift
-  Friday.........:  37.8% lift
-  Sunday.........:  19.5% lift
-  Thursday.......:   7.0% lift ⚠️  (still positive)
+By time of day (excludes 5,536 users with hour==0, not covered by any bin):
+  Morning (0-11)        +73.0% lift
+  Afternoon (12-17)     +37.3% lift
+  Evening (18-23)       +32.8% lift
 
-By Time of Day:
-  Morning (0-11).:  73.0% lift 🔥🔥 (BEST TIME)
-  Afternoon (12-17):  37.3% lift
-  Evening (18-23).:  32.8% lift
-
-Insight: Combine best day + best time for maximum impact:
-  → Tuesday morning ads could deliver 150%+ lift!
-
+Note: combining the best day and best time lift figures by addition is not a measured
+result -- the day x time interaction itself was never directly tested.
 
 BUSINESS IMPACT
-==========================================================================================
+------------------------------------------------------------------------------------------
+Current (PSA only): 1.79% conversion, 178 per 10,000 users
+Ad rollout:         2.55% conversion, 255 per 10,000 users
 
-Current Scenario (PSA only):
-  Conversion rate: 1.79%
-  Conversions per 10,000 users: 178
+Projected additional conversions at scale:
+  100K users:   +769
+  1M users:     +7,692
+  10M users:    +76,924
 
-Scenario: 100% Ad Rollout
-  Conversion rate: 2.55%
-  Conversions per 10,000 users: 255
-  Additional conversions: +76 per 10,000 users
+At $100 per conversion, 1M users: +$769,245 revenue
 
-Projected Impact at Scale:
+RECOMMENDATION
+------------------------------------------------------------------------------------------
+The evidence supports rolling out ads over PSAs: the lift is statistically significant,
+holds consistently across every subgroup checked, and is large enough in absolute terms
+to matter at scale. The two open caveats above (SRM test validity, untested day x time
+interaction) don't change that conclusion, but are worth tracking with a follow-up test
+if the platform's actual intended allocation ratio becomes available, or if a combined
+day x time campaign is tried directly rather than inferred by addition.
 
-  For 100K users:      +769 conversions
-  For 1M users:        +7,692 conversions
-  For 10M users:       +76,924 conversions
-
-If each conversion is worth $100:
-  For 1M users: +$769,245 revenue
-
-
-RECOMMENDATIONS
-==========================================================================================
-
-IMMEDIATE ACTIONS (High Priority):
-  1. Roll out ads to 100% of users immediately
-     ✅ Results are statistically significant (p < 0.0001)
-     ✅ Effect is robust across all subgroups
-     ✅ Large sample size ensures high confidence
-
-  2. Prioritize Tuesday campaigns
-     ✅ 110.7% lift (2.4x higher than Thursday)
-     ✅ Allocate 30-40% of ad budget to Tuesday
-     ✅ Reduce Thursday spend (lowest performer at 7%)
-
-  3. Schedule morning time slots
-     ✅ 73% lift in morning vs 33% in evening
-     ✅ Focus ad spend on 6am-12pm window
-     ✅ Secondary push in afternoon (12-5pm)
-
-ONGOING MONITORING:
-  1. Track daily conversion rates in MLflow (create drift detection)
-  2. Monitor by day/time to ensure effects persist
-  3. Run follow-up tests if business context changes
-  4. Set up automated alerts if conversion rate drops > 10%
-
-FUTURE EXPERIMENTS:
-  1. Test ad creative variations (which message works best?)
-  2. Test ad frequency (how many impressions per user?)
-  3. Test audience segmentation (different messages for different groups?)
-  4. Test budget allocation strategy across channels
-
-
-CONCLUSION
-==========================================================================================
-
-Based on rigorous statistical analysis of 588,101 users:
-
-✅ Advertisements generate 43.1% higher conversion than PSAs
-✅ The effect is statistically significant (p < 0.0001)
-✅ The effect is robust across all days and times
-✅ Confidence intervals do not overlap (high power)
-✅ All validity checks passed
-
-DECISION: Deploy ads to 100% of users immediately.
-EXPECTED OUTCOME: +7,692 conversions per million users
-BUSINESS IMPACT: Significant revenue increase
-
-This is a CLEAR WIN for the ad campaign. ✅
-
-
-Report Generated: 2026-09-02 11:57:52
+Report generated: 2026-09-20 07:01:00
 Analyst: Chanindu Dahanayake
-Status: READY FOR EXECUTIVE PRESENTATION
