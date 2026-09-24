@@ -44,6 +44,14 @@ Rolling out ads to all users would generate:
 - **The time-of-day breakdown silently drops about 0.94% of users.** The `most ads hour == 0` transactions (5,536 users) fall outside all three bins used for the Morning/Afternoon/Evening breakdown, due to how the bin edges are defined, and are excluded from that specific subgroup analysis without being called out. Doesn't affect the headline 43.1% lift (computed on the full dataset), only the by-time-of-day figures above.
 - **The "Tuesday morning could deliver 150%+ lift" idea (in the full report, not reflected above) is untested.** It's the Tuesday day-lift and Morning time-lift added together, not a measured result from an actual Tuesday-morning subgroup, since the day by time interaction itself was never directly tested.
 
+## Setup
+
+```
+pip install -r requirements.txt
+```
+
+Then run ab_testing_analysis.ipynb top to bottom to reproduce the analysis and regenerate the charts and report.
+
 ## Files
 
 - `ab_testing_analysis.ipynb`: complete analysis, exploratory data analysis through final report
