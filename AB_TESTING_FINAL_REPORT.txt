@@ -22,12 +22,12 @@ Test: chi-squared test of independence (appropriate for a binary outcome)
   p-value: 2.00e-13
 
 If there were no real difference between ads and PSAs, a difference this large would
-occur by chance with probability 2.00e-13 -- the difference is statistically
+occur by chance with probability 2.00e-13. The difference is statistically
 significant at the 0.05 level.
 
 VALIDITY CHECKS
 ------------------------------------------------------------------------------------------
-1. Chi-squared assumptions: all expected frequencies >= 5 -- True
+1. Chi-squared assumptions: all expected frequencies >= 5. True
 2. Simpson's paradox: lift stayed positive across every day-of-week and time-of-day
    subgroup checked (True), so the aggregate lift is not an artifact of pooling
    across a confound. This does not rule out an untested interaction (e.g. day x hour
@@ -53,7 +53,7 @@ By time of day (excludes 5,536 users with hour==0, not covered by any bin):
   Evening (18-23)       +32.8% lift
 
 Note: combining the best day and best time lift figures by addition is not a measured
-result -- the day x time interaction itself was never directly tested.
+result. The day x time interaction itself was never directly tested.
 
 BUSINESS IMPACT
 ------------------------------------------------------------------------------------------
